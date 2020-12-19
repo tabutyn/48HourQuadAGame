@@ -58,10 +58,10 @@ func _physics_process(delta):
 		current_y_velocity = up_down_speed
 		
 	if Input.is_action_pressed("right"):
-		current_x_velocity = 100.0
+		current_x_velocity = 500.0
 		print("right")
 	elif Input.is_action_pressed("left"):
-		current_x_velocity = -100.0
+		current_x_velocity = -500.0
 		print("left")
 	else:
 		if current_x_velocity < 0.0:
