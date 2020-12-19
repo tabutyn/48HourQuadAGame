@@ -41,9 +41,6 @@ func is_free_falling():
 		return true
 
 func _physics_process(delta):
-	var test_velocity = Vector2(0.0, 0.001)
-	var out_velocity = $Player.move_and_slide(test_velocity, Vector2(0.0, -1.0))
-	is_on_floor = out_velocity.y != test_velocity.y
 	if Input.is_action_just_pressed("jump") and is_on_floor:
 		current_jump_time = 0.0
 	if Input.is_action_pressed("jump"):
@@ -70,4 +67,6 @@ func _physics_process(delta):
 		if current_x_velocity > 0.0:
 			current_x_velocity -= delta * neutral_friction
 			current_x_velocity = max(0.0, current_x_velocity)
-	var slide_velocity = $Player.move_and_slide(Vector2(current_x_velocity, current_y_velocity))
+	var slide_velocity = $Player.move_and_slide(Vector2(current_x_velocity, current_y_velocity+0.001))
+	print(slide_velocity)
+	is_on_floor = slide_velocity.y != current_y_velocity
