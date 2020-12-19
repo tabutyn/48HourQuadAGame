@@ -12,54 +12,27 @@ extents = Vector2( 32.0383, 31.7168 )
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="icon" type="Sprite" parent="."]
-position = Vector2( 1.25992, 38.5199 )
-texture = ExtResource( 1 )
-offset = Vector2( 36, 0 )
-
-[node name="icon2" type="Sprite" parent="."]
-position = Vector2( 1.25992, 107.816 )
-texture = ExtResource( 1 )
-offset = Vector2( 36, 0 )
-
-[node name="icon5" type="Sprite" parent="."]
-position = Vector2( -2.74459, 562.996 )
-texture = ExtResource( 1 )
-offset = Vector2( 36, 0 )
-
-[node name="icon6" type="Sprite" parent="."]
-position = Vector2( 946.326, 560.326 )
-texture = ExtResource( 1 )
-offset = Vector2( 36, 0 )
-
-[node name="icon3" type="Sprite" parent="."]
-position = Vector2( 946.327, 38.4038 )
-texture = ExtResource( 1 )
-offset = Vector2( 36, 0 )
-
-[node name="icon4" type="Sprite" parent="."]
-position = Vector2( 948.996, 107.816 )
-texture = ExtResource( 1 )
-offset = Vector2( 36, 0 )
-
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 480, 300 )
+position = Vector2( 251.156, 179.221 )
+scale = Vector2( 0.3, 0.3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource( 1 )
 
 [node name="player_sprite" type="Sprite" parent="Player"]
+position = Vector2( 0, -1.68179 )
 texture = ExtResource( 1 )
 
 [node name="floor" type="Sprite" parent="."]
-position = Vector2( 507.766, 566.882 )
+position = Vector2( 344.916, 286.566 )
 scale = Vector2( 13.8384, 0.933708 )
 texture = ExtResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="floor"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor/StaticBody2D"]
+position = Vector2( -0.192917, -2.85919 )
 shape = SubResource( 2 )

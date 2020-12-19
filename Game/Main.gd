@@ -3,9 +3,9 @@ extends Node2D
 var current_x_velocity = 0.0
 var current_y_velocity = 0.0
 
-var walk_target = 1.0
-var run_target = 3.0
-var current_target = 1.0
+var walk_target = 100.0
+var run_target = 300.0
+var current_target = 100.0
 
 var current_jump_time = 0.0
 var gravity = 1000.0
@@ -23,10 +23,10 @@ func _ready():
 func _process(delta):
 	var x_camera_player_diff = $Camera2D.position.x - $Player.position.x
 	var y_camera_player_diff = $Camera2D.position.y - $Player.position.y
-	if x_camera_player_diff >= 100:
-		$Camera2D.position.x = $Player.position.x + 100
-	if x_camera_player_diff <= -100:
-		$Camera2D.position.x = $Player.position.x - 100
+	if x_camera_player_diff >= 50:
+		$Camera2D.position.x = $Player.position.x + 50
+	if x_camera_player_diff <= -50:
+		$Camera2D.position.x = $Player.position.x - 50
 
 func done_rising():
 	if current_jump_time >= jump_up_time:
@@ -55,12 +55,19 @@ func _physics_process(delta):
 		current_y_velocity = up_down_speed
 		
 	if Input.is_action_pressed("right"):
-		current_x_velocity = 100.0
+		if current_x_velocity < 0.0:
+			current_x_velocity += (current_target - current_x_velocity) * 20.0 * delta
+			current_target += (walk_target - current_target) * delta * 1.0
+		else:
+			current_x_velocity += (current_target - current_x_velocity) * 10.0 * delta
+			current_target += (run_target - current_target) * delta * 1.0
+			
 		print("right")
 	elif Input.is_action_pressed("left"):
-		current_x_velocity = -100.0
+		current_x_velocity += (-current_x_velocity - current_target) * 10.0 * delta
 		print("left")
 	else:
+		current_target += (walk_target - current_target) * delta * 1.0
 		if current_x_velocity < 0.0:
 			current_x_velocity += delta * neutral_friction
 			current_x_velocity = min(0.0, current_x_velocity)
@@ -68,5 +75,4 @@ func _physics_process(delta):
 			current_x_velocity -= delta * neutral_friction
 			current_x_velocity = max(0.0, current_x_velocity)
 	var slide_velocity = $Player.move_and_slide(Vector2(current_x_velocity, current_y_velocity+0.001))
-	print(slide_velocity)
 	is_on_floor = slide_velocity.y != current_y_velocity
