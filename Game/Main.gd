@@ -4,7 +4,7 @@ var current_x_velocity = 0.0
 var current_y_velocity = 0.0
 
 var walk_target = 100.0
-var run_target = 300.0
+var run_target = 200.0
 var current_target = 100.0
 
 var current_jump_time = 0.0
