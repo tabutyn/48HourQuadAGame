@@ -1,9 +1,46 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Main.gd" type="Script" id=2]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="icon" type="Sprite" parent="."]
-position = Vector2( 29, 32 )
+position = Vector2( 1.25992, 38.5199 )
 texture = ExtResource( 1 )
+offset = Vector2( 36, 0 )
+
+[node name="player" type="Sprite" parent="."]
+position = Vector2( 433.748, 230.737 )
+texture = ExtResource( 1 )
+offset = Vector2( 36, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2( -433.748, -230.737 )
+current = true
+
+[node name="icon2" type="Sprite" parent="."]
+position = Vector2( 1.25992, 107.816 )
+texture = ExtResource( 1 )
+offset = Vector2( 36, 0 )
+
+[node name="icon5" type="Sprite" parent="."]
+position = Vector2( -2.74459, 562.996 )
+texture = ExtResource( 1 )
+offset = Vector2( 36, 0 )
+
+[node name="icon6" type="Sprite" parent="."]
+position = Vector2( 946.326, 560.326 )
+texture = ExtResource( 1 )
+offset = Vector2( 36, 0 )
+
+[node name="icon3" type="Sprite" parent="."]
+position = Vector2( 946.327, 38.4038 )
+texture = ExtResource( 1 )
+offset = Vector2( 36, 0 )
+
+[node name="icon4" type="Sprite" parent="."]
+position = Vector2( 948.996, 107.816 )
+texture = ExtResource( 1 )
+offset = Vector2( 36, 0 )
