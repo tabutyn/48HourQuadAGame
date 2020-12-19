@@ -16,10 +16,6 @@ position = Vector2( 433.748, 230.737 )
 texture = ExtResource( 1 )
 offset = Vector2( 36, 0 )
 
-[node name="Camera2D" type="Camera2D" parent="player"]
-position = Vector2( -433.748, -230.737 )
-current = true
-
 [node name="icon2" type="Sprite" parent="."]
 position = Vector2( 1.25992, 107.816 )
 texture = ExtResource( 1 )
@@ -44,3 +40,6 @@ offset = Vector2( 36, 0 )
 position = Vector2( 948.996, 107.816 )
 texture = ExtResource( 1 )
 offset = Vector2( 36, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
