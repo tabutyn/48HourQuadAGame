@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Backgrounds/game over 2.jpg" type="Texture" id=1]
+[ext_resource path="res://Game Over.gd" type="Script" id=2]
 
-[node name="Node2D" type="Node2D"]
+[node name="GameOver" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 628.611, 234.935 )
