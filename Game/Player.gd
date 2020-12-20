@@ -36,6 +36,7 @@ func _physics_process(delta):
 		current_y_velocity = result_vector.y
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			current_jump_time = 0.0
+		
 		if Input.is_action_pressed("jump"):
 			current_jump_time += delta
 			if !done_rising():
@@ -48,37 +49,17 @@ func _physics_process(delta):
 			current_jump_time = jump_up_time
 			if is_free_falling():
 				current_y_velocity += delta * gravity
-			
-		if Input.is_action_pressed("right"):
-			var acceleration = 0.0
-			if current_x_velocity < 0.0:
-				acceleration = 8.0
-			else:
-				acceleration = 14.0
-			current_x_velocity += (current_target - current_x_velocity) * delta * acceleration
-			if current_x_velocity < 0.0:
-				current_target += (walk_target - current_target) * delta * 20.0 * jerk
-			if current_x_velocity > 0.0:
-				current_target += (run_target - current_target) * delta * jerk
-		elif Input.is_action_pressed("left"):
-			var acceleration = 0.0
-			if current_x_velocity > 0.0:
-				acceleration = 10.0
-			else:
-				acceleration = 20.0
-			current_x_velocity += (-current_target - current_x_velocity) * delta * acceleration
-			if current_x_velocity > 0.0:
-				current_target += (walk_target - current_target) * delta * 20.0 * jerk
-			if current_x_velocity < 0.0:
-				current_target += (run_target - current_target) * delta * jerk
+		
+		var acceleration = 0.0
+		if current_x_velocity < 0.0:
+			acceleration = 8.0
 		else:
-			current_target += (walk_target - current_target) * delta * 1.0
-			if current_x_velocity < 0.0:
-				current_x_velocity += delta * neutral_friction
-				current_x_velocity = min(0.0, current_x_velocity)
-			if current_x_velocity > 0.0:
-				current_x_velocity -= delta * neutral_friction
-				current_x_velocity = max(0.0, current_x_velocity)
+			acceleration = 14.0
+		current_x_velocity += (current_target - current_x_velocity) * delta * acceleration
+		if current_x_velocity < 0.0:
+			current_target += (walk_target - current_target) * delta * 20.0 * jerk
+		if current_x_velocity > 0.0:
+			current_target += (run_target - current_target) * delta * jerk
 	if position.x > 50000:
 		dead() 
 	
