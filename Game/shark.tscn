@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprite/132304426_408185440232654_8098371054751011822_n.png" type="Texture" id=1]
+[ext_resource path="res://shark.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 8 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -15 ), Vector2( 0, -5 ), Vector2( 0, 15 ), Vector2( 0, -5 ), Vector2( 0, -15 ) ]
+}
+
+[node name="shark" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="idle" type="Sprite" parent="."]
+position = Vector2( 0, -13.8 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 3
+
+[node name="idle_player" type="AnimationPlayer" parent="idle"]
+autoplay = "idle"
+anims/idle = SubResource( 1 )
+
+[node name="rotator" type="AnimationPlayer" parent="idle"]
+autoplay = "idle"
+anims/idle = SubResource( 2 )
