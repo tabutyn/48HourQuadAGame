@@ -9,6 +9,7 @@ func _on_no_fire_player_animation_finished(anim_name):
 	$fire/fire_player.play("fire")
 	$no_fire.visible=false
 	$fire.visible=true
+	$fire/Area2D/CollisionShape2D.disabled = false
 
 
 func _on_fire_player_animation_finished(anim_name):

@@ -22,13 +22,16 @@ func _on_idleplayer_animation_finished(anim_name):
 		$jump/jumpplayer.play("jump")
 		$jump/jumpplayer.seek(0.0)
 		$jump.visible = true
+		$jump/Area2D/CollisionShape2D.disabled = false
 		$idle.visible = false
 	else:
 		$idle/idleplayer.play("idle")
 		$idle.visible = true
 		$jump.visible = false
+		$jump/Area2D/CollisionShape2D.disabled = true
 
 func _on_jumpplayer_animation_finished(anim_name):
 	$idle/idleplayer.play("idle")
 	$idle.visible = true
 	$jump.visible = false
+	$jump/Area2D/CollisionShape2D.disabled = false
