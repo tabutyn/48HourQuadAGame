@@ -1,5 +1,7 @@
 extends Node2D
 
+var up_stroke = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -11,6 +13,11 @@ func _on_no_fire_player_animation_finished(anim_name):
 	$fire.visible=true
 	$fire/Area2D/CollisionShape2D.disabled = false
 
-
 func _on_fire_player_animation_finished(anim_name):
-	$no_fire/no_fire.play("")
+	up_stroke = !up_stroke
+	if up_stroke:
+		$no_fire/no_fire_player.play("lift_off")
+	else:
+		$no_fire/no_fire_player.play("drop_down")
+	$fire.visible=true
+	$no_fire.visible=false
