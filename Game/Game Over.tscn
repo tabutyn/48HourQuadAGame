@@ -1,72 +1,33 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Backgrounds/game over.jpg" type="Texture" id=1]
-[ext_resource path="res://Game Over.gd" type="Script" id=2]
-[ext_resource path="res://Player.gd" type="Script" id=3]
-[ext_resource path="res://Death animation.png" type="Texture" id=4]
-[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://Play Again.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 40.311, 33.3011 )
-
-[sub_resource type="Animation" id=2]
-resource_name = "death"
-length = 0.5
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 23, 25 ]
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -549.255, -137.35 )
+__meta__ = {
+"_edit_use_anchors_": false
 }
 
-[node name="GameOver" type="Node2D"]
-script = ExtResource( 2 )
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 628.611, 233.251 )
-scale = Vector2( 0.854496, 1.07226 )
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 1.0
+margin_top = 3.0
+margin_right = 479.0
+margin_bottom = 320.0
 texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 628.803, 234.198 )
-current = true
-zoom = Vector2( 0.4, 0.8 )
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="Player" type="KinematicBody2D" parent="Node2D"]
-visible = false
-position = Vector2( 240, 110 )
-script = ExtResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Player"]
-position = Vector2( 325.514, 205.411 )
-shape = SubResource( 1 )
-
-[node name="player_sprite" type="Sprite" parent="Node2D/Player"]
-position = Vector2( 326.994, 201.571 )
-scale = Vector2( 0.557558, 0.542811 )
-texture = ExtResource( 5 )
-
-[node name="Timer" type="Timer" parent="Node2D/Player"]
-one_shot = true
-
-[node name="Sprite" type="Sprite" parent="Node2D/Player"]
-visible = false
-position = Vector2( 309.49, 205.484 )
-scale = Vector2( 1, 0.885998 )
-texture = ExtResource( 4 )
-vframes = 8
-hframes = 5
-frame = 23
-
-[node name="DeathAnimation" type="AnimationPlayer" parent="Node2D/Player/Sprite"]
-anims/death = SubResource( 2 )
-[connection signal="timeout" from="Node2D/Player/Timer" to="Node2D/Player" method="_on_Timer_timeout"]
+[node name="Button" type="Button" parent="."]
+margin_right = 146.0
+margin_bottom = 67.0
+text = "Play Again"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="Button" to="Button" method="_on_Button_button_up"]

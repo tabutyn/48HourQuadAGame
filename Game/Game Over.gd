@@ -1,4 +1,4 @@
-extends "res://Main.gd"
+
 
 
 # Declare member variables here. Examples:

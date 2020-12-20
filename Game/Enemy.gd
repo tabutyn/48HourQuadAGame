@@ -35,3 +35,8 @@ func _on_jumpplayer_animation_finished(anim_name):
 	$idle.visible = true
 	$jump.visible = false
 	$jump/Area2D/CollisionShape2D.disabled = false
+
+
+func die():
+	PlayerData.score += 100
+	
