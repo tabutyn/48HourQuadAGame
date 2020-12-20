@@ -51,7 +51,6 @@ shape = SubResource( 1 )
 texture = ExtResource( 3 )
 vframes = 3
 hframes = 2
-frame = 5
 
 [node name="idleplayer" type="AnimationPlayer" parent="idle"]
 anims/idle = SubResource( 2 )
