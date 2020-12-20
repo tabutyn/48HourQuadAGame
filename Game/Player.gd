@@ -80,7 +80,7 @@ func _physics_process(delta):
 				current_x_velocity -= delta * neutral_friction
 				current_x_velocity = max(0.0, current_x_velocity)
 	
-	if position.x > 50000:
+	if position.x > 500:
 		dead() 
 	
 	
