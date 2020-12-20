@@ -79,10 +79,8 @@ func _physics_process(delta):
 			if current_x_velocity > 0.0:
 				current_x_velocity -= delta * neutral_friction
 				current_x_velocity = max(0.0, current_x_velocity)
-	
 	if position.x > 50000:
 		dead() 
-	
 	
 func dead():
 	is_dead = true 
@@ -91,5 +89,4 @@ func dead():
 	
 func _on_Timer_timeout() -> void:
 	print("Jack")
-	
 	

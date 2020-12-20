@@ -88,6 +88,7 @@ autoplay = "lift_off"
 anims/lift_off = SubResource( 1 )
 
 [node name="fire" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, -25 )
 texture = ExtResource( 2 )
 vframes = 2
