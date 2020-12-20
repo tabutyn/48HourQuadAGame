@@ -5,7 +5,7 @@
 [ext_resource path="res://Death animation.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 19.6476, 18.7447 )
+extents = Vector2( 20.0407, 10.5101 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "death"
@@ -39,9 +39,10 @@ scale = Vector2( 0.557558, 0.542811 )
 texture = ExtResource( 2 )
 
 [node name="Timer" type="Timer" parent="Player"]
+one_shot = true
 
 [node name="Sprite" type="Sprite" parent="Player"]
-position = Vector2( -274.19, 65.1764 )
+position = Vector2( -14.9829, 2.24751 )
 scale = Vector2( 1, 0.885998 )
 texture = ExtResource( 3 )
 vframes = 8
@@ -51,3 +52,4 @@ frame = 25
 [node name="DeathAnimation" type="AnimationPlayer" parent="Player/Sprite"]
 anims/death = SubResource( 2 )
 [connection signal="timeout" from="Player/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Player/Timer" to="Player" method="_on_Timer_timeout"]

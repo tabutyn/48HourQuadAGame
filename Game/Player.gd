@@ -4,12 +4,7 @@ var current_x_velocity = 0.0
 var current_y_velocity = 0.0
 
 
-func dead():
-	is_dead = true 
-	current_x_velocity = 0
-	$AnimatedSprite.play("DeathAnimation")
-	$CollisionShape2d.disabled = true
-	$Timer.start()
+
 	
 var jerk = 1.0
 var walk_target = 100.0
@@ -88,7 +83,16 @@ func _physics_process(delta):
 				current_x_velocity -= delta * neutral_friction
 				current_x_velocity = max(0.0, current_x_velocity)
 	
-func _on_Timer_timeout() -> void:
-	get_tree().change_scene("res://Game Over.tscn")
-	if $Player.position.x == 500:
+	if position.x > 500:
 		dead() 
+	
+	
+func dead():
+	is_dead = true 
+	get_tree().change_scene("res://Game Over.tscn")
+	$Timer.start() 
+	
+func _on_Timer_timeout() -> void:
+	print("Jack")
+	
+	
