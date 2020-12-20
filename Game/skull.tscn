@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprite/132191007_719403098770198_2311416312058080448_n.png" type="Texture" id=1]
 [ext_resource path="res://Sprite/132259938_396712614781086_2628013286510939254_n.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "lift_off"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -12,7 +13,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, -25 ) ]
@@ -24,16 +25,55 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.6, 0.9, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.3, 0.45, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 16.5, -16.5, 4.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 3 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fire"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -4.0, 4.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 3 ]
 }
 
 [node name="skull" type="Node2D"]
 
 [node name="no_fire" type="Sprite" parent="."]
-position = Vector2( 0, -25 )
 texture = ExtResource( 1 )
 vframes = 2
 hframes = 2
@@ -46,3 +86,6 @@ position = Vector2( 0, -25 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="fire"]
+anims/fire = SubResource( 2 )
