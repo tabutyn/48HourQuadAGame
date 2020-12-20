@@ -13,4 +13,4 @@ func _on_no_fire_player_animation_finished(anim_name):
 
 
 func _on_fire_player_animation_finished(anim_name):
-	$fire/fire_player.play("fire")
+	$no_fire/no_fire.play("")
