@@ -3,9 +3,6 @@ extends KinematicBody2D
 var current_x_velocity = 0.0
 var current_y_velocity = 0.0
 
-
-
-	
 var jerk = 1.0
 var walk_target = 100.0
 var run_target = 300.0
