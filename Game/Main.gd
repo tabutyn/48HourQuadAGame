@@ -67,6 +67,7 @@ func _on_health_overlap(body):
 	on_health()
 
 func _process(delta):
+	$AudioStreamPlayer.pitch_scale += delta * 0.01
 	var x_camera_player_diff = $Camera2D.position.x - $Player/Player.position.x
 	var y_camera_player_diff = $Camera2D.position.y - $Player/Player.position.y
 	if x_camera_player_diff >= 50:
@@ -76,7 +77,3 @@ func _process(delta):
 	$Camera2D.position.y = $Player/Player.position.y - 50
 	score += delta*2
 	update_interface()
-	
-	
-
-
