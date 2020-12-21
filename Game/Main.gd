@@ -11,10 +11,7 @@ var score = 100
 
 func update_interface() -> void:
 	$"UI/User Interface/Scoreboard".text = "Score: %s" % int(score)
-	
 
-	
-	
 
 var enemies = []
 var shark_height = 360
