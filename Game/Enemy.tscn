@@ -4,7 +4,7 @@
 [ext_resource path="res://Sprite/132012754_1666163846906826_7500629981126402749_n.png" type="Texture" id=2]
 [ext_resource path="res://Sprite/132020378_192256342566251_2972837787501599951_n.png" type="Texture" id=3]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "idle"
 length = 0.5
 tracks/0/type = "value"
@@ -20,7 +20,7 @@ tracks/0/keys = {
 "values": [ 0, 4 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "jump"
 length = 1.5
 tracks/0/type = "value"
@@ -36,7 +36,7 @@ tracks/0/keys = {
 "values": [ 0, 21 ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 13.0262, 13.3423 )
 
 [node name="Enemy" type="Node2D"]
@@ -48,7 +48,7 @@ vframes = 3
 hframes = 2
 
 [node name="idleplayer" type="AnimationPlayer" parent="idle"]
-anims/idle = SubResource( 2 )
+anims/idle = SubResource( 1 )
 
 [node name="jump" type="Sprite" parent="."]
 visible = false
@@ -58,12 +58,15 @@ vframes = 5
 hframes = 5
 
 [node name="jumpplayer" type="AnimationPlayer" parent="jump"]
-anims/jump = SubResource( 3 )
+anims/jump = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="jump"]
 position = Vector2( -1.88989, 15.749 )
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="jump/Area2D"]
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 [connection signal="animation_finished" from="idle/idleplayer" to="." method="_on_idleplayer_animation_finished"]
 [connection signal="animation_finished" from="jump/jumpplayer" to="." method="_on_jumpplayer_animation_finished"]
+[connection signal="body_entered" from="jump/Area2D" to="." method="_on_Area2D_body_entered"]
