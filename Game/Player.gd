@@ -44,6 +44,7 @@ func _physics_process(delta):
 		current_y_velocity = result_vector.y
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			current_jump_time = 0.0
+		
 		if Input.is_action_pressed("jump"):
 			current_jump_time += delta
 			if !done_rising():
@@ -56,6 +57,7 @@ func _physics_process(delta):
 			current_jump_time = jump_up_time
 			if is_free_falling():
 				current_y_velocity += delta * gravity
+
 			
 		if Input.is_action_pressed("right"):
 			var acceleration = 0.0
@@ -89,6 +91,9 @@ func _physics_process(delta):
 				current_x_velocity -= delta * neutral_friction
 				current_x_velocity = max(0.0, current_x_velocity)
 
+
+		
+	
 	if position.x > 50000:
 		dead() 
 	
