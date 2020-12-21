@@ -6,6 +6,8 @@ const skull = preload("res://skull.tscn")
 
 var enemies = []
 var shark_height = 360
+var max_health = 4
+var current_health = max_health
 
 func _ready():
 	for i in range(100):
@@ -17,6 +19,10 @@ func _ready():
 		enemies[enemies.size() - 1].position.x = (400 + randf()*100) * i
 		enemies[enemies.size() - 1].scale = Vector2(2.0, 2.0)
 		add_child(enemies[enemies.size() - 1])
+
+func _on_skull_overlap(body):
+	current_health -= 1
+	print(current_health)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
