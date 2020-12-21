@@ -33,7 +33,9 @@ func _on_skull_overlap(body):
 	current_health -= 1
 	print(current_health)
 
-	
+func _on_enemy_overlap(body):
+	#current_health -= 1
+	print("emeny")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var x_camera_player_diff = $Camera2D.position.x - $Player/Player.position.x
