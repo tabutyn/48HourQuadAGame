@@ -88,6 +88,7 @@ texture = ExtResource( 6 )
 scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Front"]
+position = Vector2( -14.983, -5.99323 )
 motion_scale = Vector2( 0.9, 0.9 )
 motion_mirroring = Vector2( 330, 0 )
 
@@ -99,3 +100,27 @@ texture = ExtResource( 7 )
 [node name="Skull" parent="." instance=ExtResource( 9 )]
 position = Vector2( 289.782, 351.518 )
 scale = Vector2( 2, 2 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="User Interface" type="Control" parent="UI"]
+margin_left = -48.0
+margin_top = 7.0
+margin_right = 528.0
+margin_bottom = 332.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scoreboard" type="Label" parent="UI/User Interface"]
+margin_left = 435.0
+margin_top = 3.0
+margin_right = 574.0
+margin_bottom = 59.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "e"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

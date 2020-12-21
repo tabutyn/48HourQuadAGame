@@ -4,7 +4,7 @@
 [ext_resource path="res://Death animation.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 46.8062, 49.461 )
+extents = Vector2( 40.311, 33.3011 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "death"
@@ -45,5 +45,5 @@ frame = 25
 
 [node name="DeathAnimation" type="AnimationPlayer" parent="Player/Sprite"]
 anims/death = SubResource( 2 )
-[connection signal="timeout" from="Player/Timer" to="Player" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Player/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Player/Timer" to="Player" method="_on_Timer_timeout"]

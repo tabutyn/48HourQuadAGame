@@ -3,6 +3,19 @@ extends Node2D
 const enemy = preload("res://Enemy.tscn")
 const skull = preload("res://skull.tscn")
 
+
+var score = 100
+
+
+
+
+func update_interface() -> void:
+	$"UI/User Interface/Scoreboard".text = "Score: %s" % int(score)
+	
+
+	
+	
+
 var enemies = []
 var shark_height = 360
 var max_health = 4
@@ -22,9 +35,20 @@ func _ready():
 func _on_skull_overlap(body):
 	current_health -= 1
 	print(current_health)
+
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var x_camera_player_diff = $Camera2D.position.x - $Player/Player.position.x
 	var y_camera_player_diff = $Camera2D.position.y - $Player/Player.position.y
-	$Camera2D.position.x = $Player/Player.position.x
+	if x_camera_player_diff >= 50:
+		$Camera2D.position.x = $Player/Player.position.x + 50
+	if x_camera_player_diff <= -50:
+		$Camera2D.position.x = $Player/Player.position.x - 50
+	$Camera2D.position.y = $Player/Player.position.y - 50
+	score += delta*2
+	update_interface()
+	
+	
+
+
