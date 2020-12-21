@@ -40,24 +40,31 @@ func on_hurt():
 	if current_health == 0:
 		$"UI/User Interface/Health1".visible = false
 		
+func on_health():
+	if current_health == 4:
+		$"UI/User Interface/Health4".visible = true
+	if current_health == 3:
+		$"UI/User Interface/Health3".visible = true
+	if current_health == 2:
+		$"UI/User Interface/Health2".visible = true
+	if current_health == 1:
+		$"UI/User Interface/Health1".visible = true
 func _on_skull_overlap(body):
 	current_health -= 1
 	print(current_health)
 	on_hurt()
-	
-
 
 func _on_enemy_overlap(body):
-	#current_health -= 1
 	print("emeny")
+	current_health -= 1
+	on_hurt()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _on_health_overlap(body):
 	current_health += 1
 	if current_health > max_health:
 		current_health = max_health
-	print("tom")
-	#do_heal()
+	on_health()
 
 func _process(delta):
 	var x_camera_player_diff = $Camera2D.position.x - $Player/Player.position.x
