@@ -15,6 +15,7 @@ var shark_height = 360
 var max_health = 4
 var current_health = max_health
 
+
 func _ready():
 	for i in range(100):
 		if randf() > 0.7:
@@ -28,9 +29,23 @@ func _ready():
 		enemies[enemies.size() - 1].scale = Vector2(2.0, 2.0)
 		add_child(enemies[enemies.size() - 1])
 
+
+func on_hurt():
+	if current_health == 3:
+		$"UI/User Interface/Health4".visible = false
+	if current_health == 2:
+		$"UI/User Interface/Health3".visible = false
+	if current_health == 1:
+		$"UI/User Interface/Health2".visible = false
+	if current_health == 0:
+		$"UI/User Interface/Health1".visible = false
+		
 func _on_skull_overlap(body):
 	current_health -= 1
 	print(current_health)
+	on_hurt()
+	
+
 
 func _on_enemy_overlap(body):
 	#current_health -= 1
