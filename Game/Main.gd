@@ -1,7 +1,6 @@
 extends Node2D
 
 const enemy = preload("res://Enemy.tscn")
-const shark = preload("res://shark.tscn")
 const skull = preload("res://skull.tscn")
 
 
@@ -12,10 +11,7 @@ var score = 100
 
 func update_interface() -> void:
 	$"UI/User Interface/Scoreboard".text = "Score: %s" % int(score)
-	
 
-	
-	
 
 var enemies = []
 var shark_height = 360
