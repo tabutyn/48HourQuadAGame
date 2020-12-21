@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://shark.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Backgrounds/sky.png" type="Texture" id=5]
 [ext_resource path="res://Backgrounds/mid.png" type="Texture" id=6]
 [ext_resource path="res://Backgrounds/front.png" type="Texture" id=7]
+[ext_resource path="res://Sprite/HealthMarker.png" type="Texture" id=8]
 [ext_resource path="res://skull.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Gradient" id=1]
@@ -17,6 +18,74 @@ gradient = SubResource( 1 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 1010.68, 0.593358 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "HealthToken"
+length = 0.45
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "HealthToken"
+length = 0.45
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "HealthToken"
+length = 0.45
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "HealthToken"
+length = 0.45
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5 ]
+}
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
@@ -105,10 +174,10 @@ scale = Vector2( 2, 2 )
 layer = 128
 
 [node name="User Interface" type="Control" parent="UI"]
-margin_left = -48.0
-margin_top = 7.0
-margin_right = 528.0
-margin_bottom = 332.0
+margin_left = -44.1501
+margin_top = 10.0
+margin_right = 531.85
+margin_bottom = 335.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -126,9 +195,49 @@ __meta__ = {
 }
 
 [node name="Health1" type="Sprite" parent="UI/User Interface"]
+position = Vector2( 333.932, 30 )
+scale = Vector2( 0.673949, 0.705251 )
+texture = ExtResource( 8 )
+vframes = 3
+hframes = 2
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/User Interface/Health1"]
+autoplay = "HealthToken"
+anims/HealthToken = SubResource( 4 )
 
 [node name="Health2" type="Sprite" parent="UI/User Interface"]
+position = Vector2( 268.15, 30 )
+scale = Vector2( 0.673949, 0.705251 )
+texture = ExtResource( 8 )
+vframes = 3
+hframes = 2
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/User Interface/Health2"]
+autoplay = "HealthToken"
+anims/HealthToken = SubResource( 5 )
 
 [node name="Health3" type="Sprite" parent="UI/User Interface"]
+position = Vector2( 204.15, 30 )
+scale = Vector2( 0.673949, 0.705251 )
+texture = ExtResource( 8 )
+vframes = 3
+hframes = 2
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/User Interface/Health3"]
+autoplay = "HealthToken"
+anims/HealthToken = SubResource( 6 )
 
 [node name="Health4" type="Sprite" parent="UI/User Interface"]
+position = Vector2( 141.454, 30 )
+scale = Vector2( 0.673949, 0.705251 )
+texture = ExtResource( 8 )
+vframes = 3
+hframes = 2
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/User Interface/Health4"]
+autoplay = "HealthToken"
+anims/HealthToken = SubResource( 7 )
