@@ -23,8 +23,10 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
-margin_right = 146.0
-margin_bottom = 67.0
+margin_left = 187.857
+margin_top = 275.633
+margin_right = 275.857
+margin_bottom = 316.633
 text = "Play Again"
 script = ExtResource( 2 )
 __meta__ = {

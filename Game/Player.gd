@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+
+
 var current_x_velocity = 0.0
 var current_y_velocity = 0.0
 
@@ -17,12 +19,18 @@ var up_down_speed = 500.0
 
 var is_dead = false
 
+
+
+
+
+
 func done_rising():
 	if current_jump_time >= jump_up_time:
 		return true
 	else:
 		return false
-
+	
+	
 func is_free_falling():
 	if current_y_velocity >= up_down_speed:
 		return false
@@ -71,6 +79,7 @@ func _physics_process(delta):
 				current_target += (walk_target - current_target) * delta * 20.0 * jerk
 			if current_x_velocity < 0.0:
 				current_target += (run_target - current_target) * delta * jerk
+			
 		else:
 			current_target += (walk_target - current_target) * delta * 1.0
 			if current_x_velocity < 0.0:
@@ -79,12 +88,8 @@ func _physics_process(delta):
 			if current_x_velocity > 0.0:
 				current_x_velocity -= delta * neutral_friction
 				current_x_velocity = max(0.0, current_x_velocity)
-<<<<<<< HEAD
-	
-	if position.x > 500:
-=======
+
 	if position.x > 50000:
->>>>>>> ff1d002a9d58572188c894553fe9df1a6c6e15bc
 		dead() 
 	
 func dead():

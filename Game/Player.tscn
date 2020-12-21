@@ -45,5 +45,5 @@ frame = 25
 
 [node name="DeathAnimation" type="AnimationPlayer" parent="Player/Sprite"]
 anims/death = SubResource( 2 )
-[connection signal="timeout" from="Player/Timer" to="Player" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Player/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Player/Timer" to="Player" method="_on_Timer_timeout"]
