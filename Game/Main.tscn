@@ -124,3 +124,11 @@ uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Health1" type="Sprite" parent="UI/User Interface"]
+
+[node name="Health2" type="Sprite" parent="UI/User Interface"]
+
+[node name="Health3" type="Sprite" parent="UI/User Interface"]
+
+[node name="Health4" type="Sprite" parent="UI/User Interface"]
