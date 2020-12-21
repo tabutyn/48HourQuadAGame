@@ -1,7 +1,6 @@
 extends Node2D
 
 const enemy = preload("res://Enemy.tscn")
-const shark = preload("res://shark.tscn")
 const skull = preload("res://skull.tscn")
 
 var enemies = []
